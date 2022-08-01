@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Quiz Application</title>
+</head>
+<body>
+	
+	<center><h1>QUIZ</h1></center>
+<style>
+.myDiv {
+ margin: auto;
+  border: 5px outset red;
+  background-color: lightyellow;    
+ align-items:center;
+  width: 500px;
+  height: 200px;
+}
+</style>
+		
+		
+		
+		
+		<h1></h1>
+		<form action="/submitquiz" method="post">		
+		
+		{% for question in question_list %}
+			
+			
+			<div class="myDiv">
+		<h2> {{loop.index}} {{question.question}}</h2>
+		
+			
+
+				<input type="radio" name="{{question.q_id}}" value="{{question.option1}}" required>{{question.option1}}<br>
+				
+				<input type="radio" name="{{question.q_id}}" value="{{question.option2}}"   required> {{question.option2}}	<br>
+				
+				<input type="radio" name="{{question.q_id}}" value="{{question.option3}}"  required>{{question.option3}}<br>
+				</div>
+				
+			
+			{% endfor %}
+
+			<br><br>
+			
+			
+			<center><input type="submit" name="submit" value="submit"> </center>
+			
+		</form>
+		
+		
+</body>
+</html>
