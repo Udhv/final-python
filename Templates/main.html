@@ -1,54 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-indigo.css">
+<title>Quiz Application</title>
 	
-	<title>Quiz Application</title>
 </head>
-<body>
+<body class="w3-theme-l3" style="border: 15px">
+
+	<h1 Style="text-align: center;border: 5px solid blue" class="w3-theme-d4"> Web Base Quiz</h1>
+		<hr />
 	
-	<center><h1>QUIZ</h1></center>
-<style>
-.myDiv {
- margin: auto;
-  border: 5px outset red;
-  background-color: lightyellow;    
- align-items:center;
-  width: 500px;
-  height: 200px;
-}
-</style>
+	
+		<form action="/submitquiz" method="post" style="text-align">
+					
+			{% for question in question_list %}
+			<h2></h2>
 		
-		
-		
-		
-		<h1></h1>
-		<form action="/submitquiz" method="post">		
-		
-		{% for question in question_list %}
-			
-			
-			<div class="myDiv">
-		<h2> {{loop.index}} {{question.question}}</h2>
-		
-			
-
-				<input type="radio" name="{{question.q_id}}" value="{{question.option1}}" required>{{question.option1}}<br>
-				
-				<input type="radio" name="{{question.q_id}}" value="{{question.option2}}"   required> {{question.option2}}	<br>
-				
-				<input type="radio" name="{{question.q_id}}" value="{{question.option3}}"  required>{{question.option3}}<br>
-				</div>
-				
-			
+		<h2 class="w3-theme" style="text-align: center;border: 5px solid blue;">Q. {{loop.index}} {{question.question}}
+		<h3 class="w3-theme-l1" style="text-align: center;border: 5px solid blue;"><span style="font-size: 35px;">
+<input type="radio" name="{{question.q_id}}" value="{{question.option1}}" >{{question.option1}}<br>
+<input type="radio" name="{{question.q_id}}" value="{{question.option2}}" >{{question.option2}}	<br>		
+<input type="radio" name="{{question.q_id}}" value="{{question.option3}}">{{question.option3}}</h3></h2>
+		    </span>
+		<br/>
 			{% endfor %}
-
+			
 			<br><br>
 			
-			
-			<center><input type="submit" name="submit" value="submit"> </center>
-			
-		</form>
+ <h1 style="text-align: center; font-size: 100px;">	
+			<input type="submit" name=" submitform" value="Submit" class="w3-theme" style="border : 7px solid blue">
+			</h1>
+			<br>
+			<br>
 		
+		</form>
+			
+
 		
 </body>
 </html>
